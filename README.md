@@ -1,16 +1,21 @@
 # Oscar Díaz · Development & Automation Portfolio
 
-**[Español](#español)** · **[English](#english)** · [temboBT case study](docs/tembobt.md) · [FisiGames case study](docs/fisigames.md) · [Source provenance](docs/provenance.md)
+**[Español](#español)** · **[English](#english)** · [temboBT case study](docs/tembobt.md) · [FisiGames case study](docs/fisigames.md) · [Postiz](docs/postiz.md) · [Radar](docs/radar.md) · [Biblioteca](docs/biblioteca.md) · [Source provenance](docs/provenance.md)
 
 ## Español
 
-Soy **Oscar Omar Díaz Ochoa**, profesional de sistemas de Ecuador. Mi experiencia combina desarrollo de aplicaciones, soporte técnico, atención al cliente y automatización. Este repositorio muestra una selección explicable de trabajo en **temboBT** y **FisiGames**.
+Soy **Oscar Omar Díaz Ochoa**, profesional de sistemas de Ecuador. Mi experiencia combina desarrollo de aplicaciones, soporte técnico, atención al cliente y automatización. Este repositorio muestra una selección explicable de trabajo en **temboBT**, **FisiGames** y herramientas privadas alojadas en SERVERSDM.
 
 | Proyecto | Problema | Código para revisar |
 |---|---|---|
 | temboBT | Organizar una base frontend inmersiva, diferir trabajo y respetar movimiento reducido | [Hooks y componente React](src/tembo) |
 | FisiGames | Preparar metadatos del directo y evitar hashtags duplicados | [Módulo original Node.js](src/fisigames/prepare-metadata.cjs) |
+| FisiGames Studio / Postiz | Personalizar la identidad y la revisión editorial sobre una plataforma existente | [Caso y captura real](docs/postiz.md) |
+| Radar temboBT | Buscar y dar seguimiento a oportunidades; servicio actualmente detenido | [Caso y alcance del conector](docs/radar.md) |
+| Biblioteca temboBT | Centralizar referencias y demos de diseño para consulta privada | [Caso y límites de verificación](docs/biblioteca.md) |
 | Demo integrada | Mostrar un flujo UI → HTTP → validación → resultado | [React](src/main.jsx), [API Node](server/index.mjs), [pruebas](test) |
+
+Los tres casos adicionales son documentación pública de sistemas privados. Postiz incluye una captura real del encabezado. Radar documenta el contrato de su conector y Biblioteca su alcance de catálogo; sus recorridos privados no se validaron en esta revisión.
 
 ### Qué es real y qué es demostración
 
@@ -59,6 +64,8 @@ I'm Oscar Díaz, an Ecuador-based systems professional with experience in applic
 The temboBT selection covers reduced-motion preferences, deferred activation and decorative parallax. The FisiGames module validates stream metadata and deduplicates hashtags. The demo adds an HTTP boundary, input validation, readable errors and automated tests. It does not connect to live accounts or broadcast services.
 
 The original systems remain private. AI-assisted development is part of my workflow; this repository distinguishes existing project code from new demonstration code and does not claim unassisted authorship. See the linked case studies for the problem, implementation, trade-offs and verification limits.
+
+Additional case studies cover a FisiGames-branded Postiz review experience, the private Radar opportunity system and a private design library. Postiz is credited as an existing third-party platform. Radar is currently stopped according to its owner; its connector contract is documented without claiming a working deployment. The library access screen was checked, while its authenticated catalog remains private.
 
 ### Scope
 

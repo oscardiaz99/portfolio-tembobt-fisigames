@@ -16,3 +16,7 @@ This repository is assembled from an explicit list of source excerpts and newly 
 The API is an educational preview endpoint, not a production authentication implementation. No browser extension, account login or broadcasting permissions are needed. Do not expose the demo API to a public network without a separate security design.
 
 If a genuine secret is later discovered, revoke or rotate it at its provider; deleting the current file alone does not remove it from Git history. Report a possible leak privately, without quoting a secret in a public issue.
+
+## Images
+
+The only reviewed image is `public/images/postiz-review.jpg`: a cropped real header with no pending content or account configuration. Binary images require manual visual review; pattern scanners cannot certify visible text in images. Do not add screenshots of private records or credential-bearing URLs.

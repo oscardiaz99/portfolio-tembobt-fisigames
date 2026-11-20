@@ -15,7 +15,7 @@ PATTERNS = {
     'private-machine-path': r'[A-Za-z]:[\\/]Users[\\/]',
     'credential-assignment': r'''(?i)(?:api[_-]?key|client[_-]?secret|password|access[_-]?token|refresh[_-]?token)\s*[:=]\s*["'][^"'\s]{8,}["']''',
 }
-ALLOWED_SUFFIXES = {'.md','.json','.js','.jsx','.mjs','.cjs','.css','.html','.py','.yml'}
+ALLOWED_SUFFIXES = {'.md','.json','.js','.jsx','.mjs','.cjs','.css','.html','.py','.yml','.jpg'}
 def files():
     for p in ROOT.rglob('*'):
         if p.is_file() and not any(part in SKIP for part in p.relative_to(ROOT).parts):
@@ -29,6 +29,10 @@ def main():
             findings.append((rel,0,'unexpected-file-type'))
         if p.name.startswith('.env') or p.suffix in {'.key','.pem','.pfx','.db'} or p.name.endswith('.local'):
             findings.append((rel,0,'private-file-type'))
+        if p.suffix == '.jpg':
+            if rel != 'public/images/postiz-review.jpg' or not p.read_bytes().startswith(bytes([255,216,255])):
+                findings.append((rel,0,'unreviewed-image'))
+            continue
         text=p.read_text(encoding='utf-8')
         for label,pattern in PATTERNS.items():
             for hit in re.finditer(pattern,text):
