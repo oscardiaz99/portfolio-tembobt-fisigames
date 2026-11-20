@@ -1,0 +1,17 @@
+{
+  "name": "oscar-diaz-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "api": "node server/index.mjs",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "node --test test/*.test.mjs",
+    "security:check": "python scripts/check_publication.py"
+  },
+  "dependencies": { "react": "^19.1.0", "react-dom": "^19.1.0" },
+  "devDependencies": { "vite": "^7.0.0" }
+}

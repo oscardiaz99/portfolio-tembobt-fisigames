@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {prepareTikTokMetadata} from '../src/fisigames/prepare-metadata.cjs';
+const draft={channels:['tiktok'],game:' Example game ',title:' Example title ',tags:'#Gaming #gaming #FisiGames #FisiGames'};
+test('trims required fields and preserves the first spelling of a hashtag',()=>{assert.deepEqual(prepareTikTokMetadata(draft),{account:'fisigames',game:'Example game',title:'Example title',hashtags:['#Gaming','#FisiGames']});});
+test('requires the TikTok destination',()=>{assert.throws(()=>prepareTikTokMetadata({...draft,channels:['youtube']}));});
+test('requires nonblank game and title',()=>{for(const field of ['game','title']) assert.throws(()=>prepareTikTokMetadata({...draft,[field]:'  '}));});
+test('does not duplicate tags already in the title',()=>{assert.deepEqual(prepareTikTokMetadata({...draft,title:'Demo #gaming'}).hashtags,['#FisiGames']);});
+test('supports Unicode hashtags and ignores ordinary text',()=>{assert.deepEqual(prepareTikTokMetadata({...draft,tags:'plain #Español #Diseño #123'}).hashtags,['#Español','#Diseño','#123']);});
+test('does not mutate the input',()=>{const copy=structuredClone(draft);prepareTikTokMetadata(draft);assert.deepEqual(draft,copy);});
